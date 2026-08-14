@@ -1,0 +1,20 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_LANDSCAPE()
+
+title Diagrama de Contexto - Nexo
+
+Person(visitante, "Visitante", "Usuário não autenticado que visualiza a plataforma de maneira limitada") 
+Person(freelancer, "Freelancer", "Usuário que oferece serviços e busca demandas de clientes para resolver")
+Person(cliente, "Cliente", "Usuário que publica demandas para serem resolvidas pelos freelancers e busca serviços oferecidos para resolver suas demandas")
+Person(administrador, "Administrador", "Moderador do sistema, responsável por controlar e fiscalizar a plataforma")
+
+System(sistema, "Nexo", "Permite a conexão entre freelancers e clientes, possibilitando a divulgação e busca de serviços e demandas.") 
+
+Rel(visitante, sistema, "Realiza busca e/ou visualiza os serviços ou demandas")
+Rel(freelancer, sistema, "Realiza o cadastro ou edição de um serviço ou envia proposta para uma demanda existente")
+Rel(cliente, sistema, "Publica demandas para freelancers resolverem e realiza busca de serviços e envia proposta para os mesmos que podem solucionar sua demanda")
+Rel(administrador, sistema, "Realiza a moderação e controle do sistema")
+
+@enduml

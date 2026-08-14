@@ -1,0 +1,25 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_LANDSCAPE()
+
+title Diagrama de Containers
+
+Person(visitante, "Visitante", "Usuário não autenticado que visualiza a plataforma de maneira limitada") 
+Person(freelancer, "Freelancer", "Usuário que oferece serviços e busca demandas de clientes para resolver")
+Person(cliente, "Cliente", "Usuário que publica demandas para serem resolvidas pelos freelancers e busca serviços oferecidos para resolver suas demandas")
+Person(administrador, "Administrador", "Moderador do sistema, responsável por controlar e fiscalizar a plataforma")
+
+
+System_Boundary(sistema, "Sistema de Conexão entre Freelancers e Clientes - Nexo") {
+  Container(frontend, "Aplicação Frontend", "React 19.2.4", "Interface do usuário para consultar e solicitar a geração de boletos")
+  Container(backend, "Aplicação Backend", "Django REST 5.2; Python 3.14", "API que fornece os serviços para autenticação de clientes e geração de boletos via HTTP+JSON")
+  ContainerDb(database, "Banco de Dados", "PostgreSQL 18", "Armazena dados dos usuários e boletos")
+}
+
+Rel(visitante, frontend, "Realiza busca e/ou visualiza os serviços ou demandas")
+Rel(freelancer, frontend, "Realiza o cadastro ou edição de um serviço ou envia proposta para uma demanda existente")
+Rel(frontend, backend, "Chamada para a API (JSON/HTTP)")
+Rel(backend, database, "Acessa informações dos usuários e boletos")
+
+@enduml
