@@ -3,6 +3,8 @@
 
 LAYOUT_LANDSCAPE()
 
+'Alunos: Thiago Gonsalves da Silva; Sarah Beatriz Barbosa do Nascimento
+
 title Diagrama de Containers
 
 Person(visitante, "Visitante", "Usuário não autenticado que visualiza a plataforma de maneira limitada") 
@@ -12,13 +14,15 @@ Person(administrador, "Administrador", "Moderador do sistema, responsável por c
 
 
 System_Boundary(sistema, "Sistema de Conexão entre Freelancers e Clientes - Nexo") {
-  Container(frontend, "Aplicação Frontend", "React 19.2.4", "Interface do usuário para consultar e solicitar a geração de boletos")
-  Container(backend, "Aplicação Backend", "Django REST 5.2; Python 3.14", "API que fornece os serviços para autenticação de clientes e geração de boletos via HTTP+JSON")
-  ContainerDb(database, "Banco de Dados", "PostgreSQL 18", "Armazena dados dos usuários e boletos")
+  Container(frontend, "Aplicação Frontend", "React 19.2.4", "Interface do usuário para realizar as operações atribuídas ao seu tipo de usuário")
+  Container(backend, "Aplicação Backend", "Django REST 5.2; Python 3.14", "#")
+  ContainerDb(database, "Banco de Dados", "PostgreSQL 18", "Armazena dados dos usuários e demais dados persistidos no sistema")
 }
 
 Rel(visitante, frontend, "Realiza busca e/ou visualiza os serviços ou demandas")
 Rel(freelancer, frontend, "Realiza o cadastro ou edição de um serviço ou envia proposta para uma demanda existente")
+Rel(cliente, frontend, "Realiza o cadastro ou edição de uma demanda ou envia proposta para um serviço existente")
+Rel(administrador, frontend, "Realiza a moderação do sistema e adiciona categorias e habilidades para uso na plataforma")
 Rel(frontend, backend, "Chamada para a API (JSON/HTTP)")
 Rel(backend, database, "Acessa informações dos usuários e boletos")
 

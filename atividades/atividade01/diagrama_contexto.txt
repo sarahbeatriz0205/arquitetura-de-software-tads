@@ -3,6 +3,8 @@
 
 LAYOUT_LANDSCAPE()
 
+'Alunos: Thiago Gonsalves da Silva; Sarah Beatriz Barbosa do Nascimento
+
 title Diagrama de Contexto - Nexo
 
 Person(visitante, "Visitante", "Usuário não autenticado que visualiza a plataforma de maneira limitada") 
