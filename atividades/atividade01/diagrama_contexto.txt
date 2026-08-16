@@ -1,8 +1,6 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
-LAYOUT_LANDSCAPE()
-
 'Alunos: Thiago Gonsalves da Silva; Sarah Beatriz Barbosa do Nascimento
 
 title Diagrama de Contexto - Nexo
@@ -14,9 +12,9 @@ Person(administrador, "Administrador", "Moderador do sistema, responsável por c
 
 System(sistema, "Nexo", "Permite a conexão entre freelancers e clientes, possibilitando a divulgação e busca de serviços e demandas.") 
 
-Rel(visitante, sistema, "Realiza busca e/ou visualiza os serviços ou demandas")
+Rel(visitante, sistema, "Realiza busca e/ou visualiza serviços, demandas e perfis de outros usuários")
 Rel(freelancer, sistema, "Realiza o cadastro ou edição de um serviço ou envia proposta para uma demanda existente")
-Rel(cliente, sistema, "Publica demandas para freelancers resolverem e realiza busca de serviços e envia proposta para os mesmos que podem solucionar sua demanda")
+Rel(cliente, sistema, "Publica demandas para freelancers resolverem, realiza busca de serviços e envia proposta para os mesmos que podem solucionar sua demanda")
 Rel(administrador, sistema, "Realiza a moderação e controle do sistema")
 
 @enduml
