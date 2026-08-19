@@ -22,6 +22,7 @@
 
 ## Notação dos diagramas do C4
 <img width="988" height="539" alt="image" src="https://github.com/user-attachments/assets/5f10159d-e5da-4a93-8f80-5392573c55eb" />
+
 ### Elementos
 - **Os diagramas devem ter um título descrevendo o tipo e o escopo do programa**
 - **O tipo de cada elemento do diagrama deve ser especificado e deve ter uma breve descrição**
